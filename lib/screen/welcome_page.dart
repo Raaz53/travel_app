@@ -48,7 +48,9 @@ class _WelcomePageState extends State<WelcomePage> {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ElevatedButtonWidget(labelText: "Sign In"),
+                      ElevatedButtonWidget(
+                        labelText: "Sign In",
+                      ),
                       ElevatedButtonWidget(labelText: "Sign Up"),
                     ],
                   )

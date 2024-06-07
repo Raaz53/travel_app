@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_application/styles/font_styling.dart';
+import '../models/travelling_app.dart';
 
 class HomeInfoContainerWidget extends StatefulWidget {
   const HomeInfoContainerWidget(
@@ -13,7 +13,7 @@ class HomeInfoContainerWidget extends StatefulWidget {
 }
 
 class _HomeInfoContainerWidgetState extends State<HomeInfoContainerWidget> {
-  FontStyling fontStyling = FontStyling();
+  TravellingApp fontStyling = TravellingApp();
 
   @override
   Widget build(BuildContext context) {

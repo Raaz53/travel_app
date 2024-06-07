@@ -17,6 +17,7 @@ class _ElevatedButtonWidgetState extends State<ElevatedButtonWidget> {
       height: 45,
       width: 115,
       child: ElevatedButton(
+          style: ElevatedButton.styleFrom(elevation: 0),
           onPressed: () {
             Navigator.push(
                 context,
