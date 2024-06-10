@@ -1,7 +1,20 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TravellingApp {
+  //icon images
+  Image iconHome = const Image(
+      image: AssetImage('assets/bottom_navigation_icons/icon_home.png'));
+  Image iconFavorite = const Image(
+      image: AssetImage('assets/bottom_navigation_icons/icon_favorite.png'));
+  Image iconLocation = const Image(
+      image: AssetImage('assets/bottom_navigation_icons/icon_location.png'));
+  Image iconRead = const Image(
+      image: AssetImage('assets/bottom_navigation_icons/icon_read.png'));
+
   //places images
   Image place1 = const Image(
     image: AssetImage('assets/destinations/dubai.jpg'),
@@ -23,11 +36,12 @@ class TravellingApp {
     return holding;
   }
 
-  //fontstyling of the contents
+  //fontStyling of the contents
   Text destinationTopic(String text) {
     Text holding = Text(
       text,
-      style: GoogleFonts.montserrat(fontSize: 24, fontWeight: FontWeight.w600),
+      style: GoogleFonts.montserrat(
+          fontSize: 24, fontWeight: FontWeight.w600, color: Colors.white),
     );
     return holding;
   }
@@ -35,7 +49,7 @@ class TravellingApp {
   Text destinationDescription(String text) {
     Text holding = Text(
       text,
-      style: GoogleFonts.montserrat(fontSize: 13),
+      style: GoogleFonts.montserrat(fontSize: 13, color: Colors.white),
     );
     return holding;
   }
@@ -59,7 +73,7 @@ class TravellingApp {
   Text readingPageTopicFont(String text) {
     Text holding = Text(
       text,
-      style: GoogleFonts.montserrat(fontSize: 14, fontWeight: FontWeight.w500),
+      style: GoogleFonts.montserrat(fontSize: 14, fontWeight: FontWeight.bold),
     );
     return holding;
   }

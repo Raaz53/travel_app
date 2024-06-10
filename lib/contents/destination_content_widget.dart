@@ -1,6 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:travel_application/widget/carousel_destination_widget.dart';
 
 import '../models/travelling_app.dart';
 
@@ -14,16 +12,53 @@ class DestinationContentWidget extends StatefulWidget {
 
 class _DestinationContentWidgetState extends State<DestinationContentWidget> {
   TravellingApp travellingApp = TravellingApp();
+
+  bool isSelected = false;
+
+  void changeState() {
+    setState(() {
+      isSelected = !isSelected;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return CarouselDestinationWidget(
-      screenHeight: height,
-      screenWidth: width,
-      destinationTopic: travellingApp.destination1Topic,
-      destinationDescription: travellingApp.destination1Info,
-      backgroundImage: travellingApp.place1,
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: travellingApp.place3,
+        ),
+        Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: travellingApp
+                        .destinationTopic(travellingApp.destination3Topic),
+                  ),
+                  IconButton(
+                    onPressed: () => changeState(),
+                    icon: Image(
+                      image: isSelected
+                          ? const AssetImage(
+                              'assets/icons/favorite_selected.png')
+                          : const AssetImage('assets/icons/favorite.png'),
+                    ),
+                  )
+                ],
+              ),
+              travellingApp
+                  .destinationDescription(travellingApp.destination3Info),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

@@ -6,6 +6,7 @@ class TextTileWidget extends StatefulWidget {
 
   final String label;
   final IconData icons;
+  final TextEditingController controller;
 
   @override
   State<TextTileWidget> createState() => _TextTileWidgetState();
@@ -18,10 +19,13 @@ class _TextTileWidgetState extends State<TextTileWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          widget.label,
-          style:
-              GoogleFonts.montserrat(fontWeight: FontWeight.w300, fontSize: 13),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 20),
+          child: Text(
+            widget.label,
+            style: GoogleFonts.montserrat(
+                fontWeight: FontWeight.w300, fontSize: 13),
+          ),
         ),
         Container(
           width: double.infinity,
@@ -39,6 +43,8 @@ class _TextTileWidgetState extends State<TextTileWidget> {
                 )
               ]),
           child: TextFormField(
+            controller: widget.controller,
+            validator: ,
             decoration: InputDecoration(
                 border: InputBorder.none,
                 prefixIcon: Icon(

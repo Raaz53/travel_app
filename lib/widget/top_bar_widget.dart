@@ -24,7 +24,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -50,7 +50,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(

@@ -16,7 +16,21 @@ class _ReadingPageContentState extends State<ReadingPageContent> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ReadingPageTopWidget(),
+        const ReadingPageTopWidget(),
+        Expanded(
+            child: Padding(
+          padding: EdgeInsets.all(20),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                travellingApp
+                    .readingPageTopicFont(travellingApp.readingPageTitle),
+                travellingApp.readingPageDescriptionFont(
+                    travellingApp.readingPageDescription),
+              ],
+            ),
+          ),
+        ))
       ],
     );
   }

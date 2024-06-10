@@ -4,7 +4,6 @@ import 'package:travel_application/widget/stacked_image_widget.dart';
 import 'package:travel_application/widget/home_info_container_widget.dart';
 
 import '../models/travelling_app.dart';
-import '../widget/top_bar_widget.dart';
 
 class HomeContentWidget extends StatefulWidget {
   const HomeContentWidget({super.key});
@@ -22,9 +21,8 @@ class _HomeContentWidgetState extends State<HomeContentWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TopBarWidget(),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: travelApp.contentTopic("Explore"),
         ),
         CarouselSlider(

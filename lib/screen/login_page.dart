@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_application/screen/home_page.dart';
@@ -11,6 +12,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -51,6 +55,9 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Checkbox(
+                      activeColor: Colors.black54,
+                      visualDensity:
+                          const VisualDensity(horizontal: -4, vertical: -4),
                       value: isChecked,
                       onChanged: (value) => setState(() {
                             isChecked = value!;
@@ -61,24 +68,27 @@ class _LoginPageState extends State<LoginPage> {
                   )
                 ],
               ),
-              SizedBox(
-                width: double.infinity,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: const Color.fromRGBO(229, 229, 229, 0)),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(elevation: 0),
-                    onPressed: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomePage()),
-                          (Route<dynamic> route) => false);
-                    },
-                    child: Text(
-                      'Login',
-                      style: GoogleFonts.montserrat(fontSize: 18),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: const Color.fromRGBO(229, 229, 229, 0)),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(elevation: 0),
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()),
+                            (Route<dynamic> route) => false);
+                      },
+                      child: Text(
+                        'Login',
+                        style: GoogleFonts.montserrat(fontSize: 18),
+                      ),
                     ),
                   ),
                 ),
@@ -87,9 +97,12 @@ class _LoginPageState extends State<LoginPage> {
                 ' - OR - ',
                 style: GoogleFonts.montserrat(fontSize: 14),
               ),
-              Text(
-                'Sign In With',
-                style: GoogleFonts.montserrat(fontSize: 11),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Text(
+                  'Sign In With',
+                  style: GoogleFonts.montserrat(fontSize: 11),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

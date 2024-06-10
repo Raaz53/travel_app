@@ -28,25 +28,11 @@ class _ReadingPageTopWidgetState extends State<ReadingPageTopWidget> {
             child: Text(
               'TRAVEL NEWS',
               style: GoogleFonts.montserrat(
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.bold,
                   fontSize: 18,
                   decoration: TextDecoration.underline),
             ),
           ),
-          Positioned(
-            top: 44,
-            left: 24,
-            child: DecoratedBox(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: const Color.fromRGBO(240, 240, 240, 0.25)),
-                child: IconButton(
-                  icon: const Image(
-                    image: AssetImage('assets/icons/icon_back.png'),
-                  ),
-                  onPressed: () {},
-                )),
-          )
         ],
       ),
     );
