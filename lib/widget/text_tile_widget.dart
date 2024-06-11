@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextTileWidget extends StatefulWidget {
-  const TextTileWidget({super.key, required this.label, required this.icons});
+  const TextTileWidget({super.key, required this.label, required this.icons, required this.controller});
 
   final String label;
   final IconData icons;

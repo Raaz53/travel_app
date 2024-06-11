@@ -41,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               const TextTileWidget(
                 label: 'Password',
                 icons: Icons.key_outlined,
+                controller: null,
               ),
               Align(
                 alignment: Alignment.centerRight,
