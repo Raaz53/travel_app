@@ -28,17 +28,26 @@ class _HomeContentWidgetState extends State<HomeContentWidget> {
         CarouselSlider(
             items: [
               StackedImageWidget(
-                destinationPicture: travelApp.place1,
+                destinationPicture: Image.asset(
+                  travelApp.dubaiImage,
+                  fit: BoxFit.cover,
+                ),
                 country: travelApp.destination1Topic,
                 isExplore: true,
               ),
               StackedImageWidget(
-                destinationPicture: travelApp.place2,
+                destinationPicture: Image.asset(
+                  travelApp.phuketImage,
+                  fit: BoxFit.cover,
+                ), //travelApp.place2,
                 country: travelApp.destination2Topic,
                 isExplore: true,
               ),
               StackedImageWidget(
-                destinationPicture: travelApp.place3,
+                destinationPicture: Image.asset(
+                  travelApp.tokyoImage,
+                  fit: BoxFit.cover,
+                ), //travelApp.place3,
                 country: travelApp.destination3Topic,
                 isExplore: true,
               ),
@@ -56,17 +65,17 @@ class _HomeContentWidgetState extends State<HomeContentWidget> {
           ],
         ),
         Padding(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               travelApp.contentTopic('Travel News'),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               HomeInfoContainerWidget(
                   topic: travelApp.topic1, description: travelApp.description1),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               HomeInfoContainerWidget(

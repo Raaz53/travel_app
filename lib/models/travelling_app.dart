@@ -15,19 +15,12 @@ class TravellingApp {
   Image iconRead = const Image(
       image: AssetImage('assets/bottom_navigation_icons/icon_read.png'));
 
+  String dubaiImage = 'assets/destinations/dubai.jpg';
+  String phuketImage = 'assets/destinations/phuket.jpg';
+  String tokyoImage = 'assets/destinations/tokyo.jpg';
+
   //places images
-  Image place1 = const Image(
-    image: AssetImage('assets/destinations/dubai.jpg'),
-    fit: BoxFit.cover,
-  );
-  Image place2 = const Image(
-    image: AssetImage('assets/destinations/phuket.jpg'),
-    fit: BoxFit.cover,
-  );
-  Image place3 = const Image(
-    image: AssetImage('assets/destinations/tokyo.jpg'),
-    fit: BoxFit.cover,
-  );
+
   Text contentTopic(String text) {
     Text holding = Text(
       text,

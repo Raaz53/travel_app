@@ -32,21 +32,30 @@ class _FavoriteContentWidgetState extends State<FavoriteContentWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   StackedImageWidget(
-                      destinationPicture: travellingApp.place1,
+                      destinationPicture: Image.asset(
+                        travellingApp.dubaiImage,
+                        fit: BoxFit.cover,
+                      ),
                       country: travellingApp.destination1Topic,
                       isExplore: false),
                   const SizedBox(
                     height: 30,
                   ),
                   StackedImageWidget(
-                      destinationPicture: travellingApp.place3,
+                      destinationPicture: Image.asset(
+                        travellingApp.tokyoImage,
+                        fit: BoxFit.cover,
+                      ), //travellingApp.place3,
                       country: travellingApp.destination3Topic,
                       isExplore: false),
                   const SizedBox(
                     height: 30,
                   ),
                   StackedImageWidget(
-                      destinationPicture: travellingApp.place3,
+                      destinationPicture: Image.asset(
+                        travellingApp.tokyoImage,
+                        fit: BoxFit.cover,
+                      ), //travellingApp.place3,
                       country: travellingApp.destination3Topic,
                       isExplore: false),
                 ],

@@ -28,7 +28,10 @@ class _DestinationContentWidgetState extends State<DestinationContentWidget> {
     return Stack(
       children: [
         Positioned.fill(
-          child: travellingApp.place3,
+          child: Image.asset(
+            travellingApp.tokyoImage,
+            fit: BoxFit.cover,
+          ),
         ),
         Padding(
           padding: EdgeInsets.all(20),

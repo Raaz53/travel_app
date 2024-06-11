@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextTileWidget extends StatefulWidget {
-  const TextTileWidget({super.key, required this.label, required this.icons, required this.controller});
+  const TextTileWidget(
+      {super.key,
+      required this.label,
+      required this.icons,
+      required this.controller});
 
   final String label;
   final IconData icons;
@@ -20,38 +24,29 @@ class _TextTileWidgetState extends State<TextTileWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20),
           child: Text(
             widget.label,
             style: GoogleFonts.montserrat(
                 fontWeight: FontWeight.w300, fontSize: 13),
           ),
         ),
-        Container(
-          width: double.infinity,
-          height: 40,
-          decoration: ShapeDecoration(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              shadows: const [
-                BoxShadow(
-                  color: Color(0x19000000),
-                  blurRadius: 5,
-                  offset: Offset(2, 2),
-                  spreadRadius: 0,
-                )
-              ]),
-          child: TextFormField(
-            controller: widget.controller,
-            validator: ,
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(
-                  widget.icons,
-                  color: const Color.fromRGBO(200, 200, 200, 10),
-                )),
-          ),
+        TextFormField(
+          controller: widget.controller,
+          validator: (value) {
+            if (value == null || value.isEmpty || value.startsWith(' ')) {
+              return "This field can't be empty";
+            }
+            return null;
+          },
+          decoration: InputDecoration(
+              border: const OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.all(Radius.circular(30))),
+              prefixIcon: Icon(
+                widget.icons,
+                color: const Color.fromRGBO(200, 200, 200, 10),
+              )),
         ),
       ],
     );
