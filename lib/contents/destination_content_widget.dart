@@ -43,7 +43,7 @@ class _DestinationContentWidgetState extends State<DestinationContentWidget> {
                 children: [
                   Flexible(
                     child: travellingApp
-                        .destinationTopic(travellingApp.destination3Topic),
+                        .destinationTopic(travellingApp.tokyoTitle),
                   ),
                   IconButton(
                     onPressed: () => changeState(),
@@ -57,7 +57,7 @@ class _DestinationContentWidgetState extends State<DestinationContentWidget> {
                 ],
               ),
               travellingApp
-                  .destinationDescription(travellingApp.destination3Info),
+                  .destinationDescription(travellingApp.tokyoDescription),
             ],
           ),
         ),

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:travel_application/widget/stacked_image_widget.dart';
 
+import '../models/destination_model.dart';
 import '../models/travelling_app.dart';
 
 class FavoriteContentWidget extends StatefulWidget {
-  const FavoriteContentWidget({super.key});
+  const FavoriteContentWidget({super.key, required this.favoriteList});
+
+  final List<DestinationModel> favoriteList;
 
   @override
   State<FavoriteContentWidget> createState() => _FavoriteContentWidgetState();
@@ -26,42 +29,14 @@ class _FavoriteContentWidgetState extends State<FavoriteContentWidget> {
             child: travellingApp.contentTopic('Favorite'),
           ),
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  StackedImageWidget(
-                      destinationPicture: Image.asset(
-                        travellingApp.dubaiImage,
-                        fit: BoxFit.cover,
-                      ),
-                      country: travellingApp.destination1Topic,
-                      isExplore: false),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  StackedImageWidget(
-                      destinationPicture: Image.asset(
-                        travellingApp.tokyoImage,
-                        fit: BoxFit.cover,
-                      ), //travellingApp.place3,
-                      country: travellingApp.destination3Topic,
-                      isExplore: false),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  StackedImageWidget(
-                      destinationPicture: Image.asset(
-                        travellingApp.tokyoImage,
-                        fit: BoxFit.cover,
-                      ), //travellingApp.place3,
-                      country: travellingApp.destination3Topic,
-                      isExplore: false),
-                ],
-              ),
-            ),
-          ),
+              child: ListView.builder(
+                  itemCount: widget.favoriteList.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return StackedImageWidget(
+                        isExplore: false,
+                        destinationModel: widget.favoriteList[index]);
+                  })),
         ],
       ),
     );

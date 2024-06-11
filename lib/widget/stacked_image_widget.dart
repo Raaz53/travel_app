@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_application/models/destination_model.dart';
 
 class StackedImageWidget extends StatefulWidget {
   const StackedImageWidget(
-      {super.key,
-      required this.destinationPicture,
-      required this.country,
-      required this.isExplore});
-  final Image destinationPicture;
-  final String country;
+      {super.key, required this.isExplore, this.destinationModel});
 
+  final DestinationModel? destinationModel;
   final bool isExplore;
 
   @override
@@ -26,13 +23,16 @@ class _StackedImageWidgetState extends State<StackedImageWidget> {
           width: widget.isExplore ? 238 : 300,
           child: ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(20)),
-              child: widget.destinationPicture),
+              child: Image.asset(
+                widget.destinationModel!.destinationPicture,
+                fit: BoxFit.cover,
+              )),
         ),
         Positioned(
           top: widget.isExplore ? 100 : 150,
           left: 20,
           child: Text(
-            widget.country,
+            widget.destinationModel!.countryTitle,
             style: GoogleFonts.montserrat(
                 fontWeight: FontWeight.w500, fontSize: 13, color: Colors.white),
           ),

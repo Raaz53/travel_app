@@ -6,6 +6,7 @@ import 'package:travel_application/contents/destination_content_widget.dart';
 import 'package:travel_application/contents/reading_page_content.dart';
 
 import 'package:travel_application/contents/home_content_widget.dart';
+import 'package:travel_application/models/destination_model.dart';
 import 'package:travel_application/models/travelling_app.dart';
 import 'package:travel_application/widget/top_bar_widget.dart';
 
@@ -20,6 +21,38 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TravellingApp travellingApp = TravellingApp();
+
+  List<DestinationModel> places = [];
+  List<DestinationModel> favoriteList = [];
+
+  late DestinationModel dubai;
+  late DestinationModel phuket;
+  late DestinationModel tokyo;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    dubai = DestinationModel(
+        destinationPicture: travellingApp.dubaiImage,
+        countryTitle: travellingApp.dubaiTitle,
+        description: travellingApp.dubaiDescription);
+    phuket = DestinationModel(
+        destinationPicture: travellingApp.phuketImage,
+        countryTitle: travellingApp.phuketTitle,
+        description: travellingApp.phuketDescription);
+    tokyo = DestinationModel(
+        destinationPicture: travellingApp.tokyoImage,
+        countryTitle: travellingApp.tokyoTitle,
+        description: travellingApp.tokyoDescription);
+
+    places.add(dubai);
+    places.add(phuket);
+    places.add(tokyo);
+
+    favoriteList.add(phuket);
+  }
+
   int currentIndex = 0;
   bool isSelected = true;
   @override
@@ -34,10 +67,14 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: IndexedStack(
               index: currentIndex,
-              children: const [
-                HomeContentWidget(),
+              children: [
+                HomeContentWidget(
+                  places: places,
+                ),
                 DestinationContentWidget(),
-                FavoriteContentWidget(),
+                FavoriteContentWidget(
+                  favoriteList: favoriteList,
+                ),
                 ReadingPageContent(),
               ],
             ),
@@ -75,12 +112,12 @@ class _HomePageState extends State<HomePage> {
       {required Image displayIcon, required int index}) {
     return BottomNavigationBarItem(
         label: '',
-        icon: Container(
+        icon: SizedBox(
           height: 50,
           child: currentIndex == index
               ? Material(
                   elevation: 10.0,
-                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                  borderRadius: const BorderRadius.all(Radius.circular(50)),
                   child: displayIcon,
                 )
               : displayIcon,

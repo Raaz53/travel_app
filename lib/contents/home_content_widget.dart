@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:travel_application/widget/stacked_image_widget.dart';
 import 'package:travel_application/widget/home_info_container_widget.dart';
 
+import '../models/destination_model.dart';
 import '../models/travelling_app.dart';
 
 class HomeContentWidget extends StatefulWidget {
-  const HomeContentWidget({super.key});
+  const HomeContentWidget({super.key, required this.places});
+
+  final List<DestinationModel> places;
 
   @override
   State<HomeContentWidget> createState() => _HomeContentWidgetState();
@@ -14,6 +17,8 @@ class HomeContentWidget extends StatefulWidget {
 
 class _HomeContentWidgetState extends State<HomeContentWidget> {
   TravellingApp travelApp = TravellingApp();
+
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,43 +31,24 @@ class _HomeContentWidgetState extends State<HomeContentWidget> {
           child: travelApp.contentTopic("Explore"),
         ),
         CarouselSlider(
-            items: [
-              StackedImageWidget(
-                destinationPicture: Image.asset(
-                  travelApp.dubaiImage,
-                  fit: BoxFit.cover,
-                ),
-                country: travelApp.destination1Topic,
-                isExplore: true,
-              ),
-              StackedImageWidget(
-                destinationPicture: Image.asset(
-                  travelApp.phuketImage,
-                  fit: BoxFit.cover,
-                ), //travelApp.place2,
-                country: travelApp.destination2Topic,
-                isExplore: true,
-              ),
-              StackedImageWidget(
-                destinationPicture: Image.asset(
-                  travelApp.tokyoImage,
-                  fit: BoxFit.cover,
-                ), //travelApp.place3,
-                country: travelApp.destination3Topic,
-                isExplore: true,
-              ),
-            ],
+            items: List.generate(
+                widget.places.length,
+                (index) => StackedImageWidget(
+                    destinationModel: widget.places[index], isExplore: true)),
             options: CarouselOptions(
                 aspectRatio: 2.6,
                 viewportFraction: 0.58,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
                 enlargeCenterPage: true)),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            buildIndicator(isActive: false),
-            buildIndicator(isActive: true),
-            buildIndicator(isActive: false)
-          ],
+          children: List.generate(3, (index) {
+            return buildIndicator(isActive: _currentIndex == index);
+          }),
         ),
         Padding(
           padding: const EdgeInsets.all(30),
@@ -91,7 +77,7 @@ class _HomeContentWidgetState extends State<HomeContentWidget> {
 
   Widget buildIndicator({required bool isActive}) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 4),
+      margin: const EdgeInsets.symmetric(horizontal: 4),
       width: isActive ? 12 : 8,
       height: isActive ? 12 : 8,
       decoration: BoxDecoration(

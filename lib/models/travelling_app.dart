@@ -89,15 +89,15 @@ class TravellingApp {
       "The outbreak of the coronavirus is having a big impact on tourism in Japan. The country's borders remain closed to international tourists, and there are no signs that the borders will be opened to considerable numbers of tourists in the near future.";
 
   //destination page contents
-  String destination1Topic = 'UAE \nDubai,Oil Money';
-  String destination1Info =
+  String dubaiTitle = 'UAE \nDubai,Oil Money';
+  String dubaiDescription =
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
-  String destination2Topic = 'Thailand \nPhuket,Mystic Heaven';
-  String destination2Info =
+  String phuketTitle = 'Thailand \nPhuket,Mystic Heaven';
+  String phuketDescription =
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).";
 
-  String destination3Topic = 'JAPAN \nTokyo,Historic Tokyo';
-  String destination3Info =
+  String tokyoTitle = 'JAPAN \nTokyo,Historic Tokyo';
+  String tokyoDescription =
       "The site of Tokyo has been inhabited since ancient times; the small fishing village of Edo existed there for centuries. Edo’s development into a city did not occur until the Tokugawa period (1603–1867), when it became the capital of the Tokugawa shogunate. During this period, however, the imperial family remained in Kyōto, the ancient imperial capital. With the Meiji Restoration of 1868, which ended the shogunate, the capital was moved to Edo. The city was renamed Tokyo, meaning “eastern capital.” Edo had been Japan’s largest city since the 17th century.";
 
   String readingPageTitle =
