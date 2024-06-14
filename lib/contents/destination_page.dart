@@ -22,6 +22,15 @@ class _DestinationPageState extends State<DestinationPage> {
 
   bool isSelected = false;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    if (widget.favoriteList.contains(widget.destinationModel)) {
+      isSelected = true;
+    }
+  }
+
   void changeState() {
     setState(() {
       isSelected = !isSelected;
@@ -35,8 +44,15 @@ class _DestinationPageState extends State<DestinationPage> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset(widget.destinationModel.destinationPicture),
+            child: Image.asset(
+              widget.destinationModel.destinationPicture,
+              fit: BoxFit.cover,
+            ),
           ),
+          Positioned.fill(
+              child: Container(
+            color: Colors.black.withOpacity(0.5),
+          )),
           Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -52,7 +68,9 @@ class _DestinationPageState extends State<DestinationPage> {
                     IconButton(
                       onPressed: () {
                         changeState();
-                        if (isSelected) {
+                        if (isSelected &&
+                            !widget.favoriteList
+                                .contains(widget.destinationModel)) {
                           widget.favoriteList.add(widget.destinationModel);
                         } else if (!isSelected &&
                             widget.favoriteList

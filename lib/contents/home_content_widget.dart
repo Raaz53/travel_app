@@ -7,9 +7,11 @@ import '../models/destination_model.dart';
 import '../models/travelling_app.dart';
 
 class HomeContentWidget extends StatefulWidget {
-  const HomeContentWidget({super.key, required this.places});
+  const HomeContentWidget(
+      {super.key, required this.places, required this.favoriteList});
 
   final List<DestinationModel> places;
+  final List<DestinationModel> favoriteList;
 
   @override
   State<HomeContentWidget> createState() => _HomeContentWidgetState();
@@ -34,7 +36,9 @@ class _HomeContentWidgetState extends State<HomeContentWidget> {
             items: List.generate(
                 widget.places.length,
                 (index) => StackedImageWidget(
-                    destinationModel: widget.places[index], isExplore: true)),
+                    favoriteList: widget.favoriteList,
+                    destinationModel: widget.places[index],
+                    isExplore: true)),
             options: CarouselOptions(
                 aspectRatio: 2.6,
                 viewportFraction: 0.58,

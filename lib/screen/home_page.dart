@@ -49,8 +49,6 @@ class _HomePageState extends State<HomePage> {
     places.add(dubai);
     places.add(phuket);
     places.add(tokyo);
-
-    favoriteList.add(phuket);
   }
 
   int currentIndex = 0;
@@ -70,6 +68,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 HomeContentWidget(
                   places: places,
+                  favoriteList: favoriteList,
                 ),
                 DestinationContentWidget(),
                 FavoriteContentWidget(

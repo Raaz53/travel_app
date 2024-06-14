@@ -28,15 +28,22 @@ class _FavoriteContentWidgetState extends State<FavoriteContentWidget> {
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: travellingApp.contentTopic('Favorite'),
           ),
-          Expanded(
-              child: ListView.builder(
-                  itemCount: widget.favoriteList.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return StackedImageWidget(
-                        isExplore: false,
-                        destinationModel: widget.favoriteList[index]);
-                  })),
+          widget.favoriteList.isEmpty
+              ? const Text('No Data')
+              : Expanded(
+                  child: ListView.builder(
+                      itemCount: widget.favoriteList.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: StackedImageWidget(
+                            isExplore: false,
+                            destinationModel: widget.favoriteList[index],
+                            favoriteList: widget.favoriteList,
+                          ),
+                        );
+                      })),
         ],
       ),
     );
