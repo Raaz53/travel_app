@@ -40,6 +40,8 @@ class _TextTileWidgetState extends State<TextTileWidget> {
             return null;
           },
           decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
               border: const OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.all(Radius.circular(30))),
